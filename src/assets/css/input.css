@@ -1,0 +1,98 @@
+.container {
+    color: rgb(21, 0, 90);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-color: rgb(236, 225, 103); */
+    padding-top: 30px;
+    /* background-position: 100% 50% ; */
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    
+
+    
+}
+
+
+
+@media (max-width: 480px){
+    .container {
+        
+        color: rgb(22, 7, 75);
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;              
+    }
+}
+
+
+/* .sometxt {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;      
+} */
+
+.mydiv {
+	position: relative;
+	margin: 10% auto 0;
+	width: 70%;
+	height: 200px;
+    	background: linear-gradient(90deg, #000, #323232); 
+}
+
+.animate-bg:before, .animate-bg:after {
+	content: '';
+	position: absolute;
+	left: -8px;
+	top: -8px;
+	background: linear-gradient(120deg, #cbf7a2, #ea99f5, #8596fa,#f16e95,  
+	#cc6394, #fa8dcd,#f3a774, #7ce0f1,#f7f773, #51aeca);
+	background-size: 300%;
+	width: calc(100% + 16px);
+	height: calc(100% + 16px);
+	z-index: -5;
+	animation: BGgradient 15s ease infinite; 
+}
+
+@keyframes BGgradient {
+	0% {
+		background-position: 0% 200%;
+	}
+	50% {
+		background-position: 200% 0%;
+	}
+	100% {
+		background-position: 0% 330%;
+	}
+}
+
+.animate-bg:after {
+	filter: brightness(1.4);
+	filter: drop-shadow(16px 16px 20px rgb(248, 220, 97));
+	filter: blur(15px);
+}
+
+.btn1 {
+    padding: 15px 25px;
+    margin: 20px;
+    font-size: 16px;
+    border: 2px solid #ff8b07;
+    color: white;
+    cursor: pointer; 
+    background: linear-gradient(to right, transparent 50%, #ff8b07 50%);
+    background-size: 200%;
+    background-position: left;
+    transition: background-position 0.5s;
+}
+
+.btn1:hover {
+    background-position: right;
+    color: black;
+    font-weight: 700;
+}
