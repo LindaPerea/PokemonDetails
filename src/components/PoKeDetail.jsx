@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import '../assets/css/pokedetail.css'
 
 const PoKeDetail = () => {
 
@@ -15,10 +16,10 @@ const PoKeDetail = () => {
 
     console.log(pokemon);
     return (
-        <div>
+        <div className='poke-detail' >
             <h1>{pokemon.name}</h1>
             
-            <img src={pokemon.sprites?.front_default} alt="" />
+            <img src={pokemon.sprites?.other.home.front_default} alt="" />
         </div>
     );
 };

@@ -22,8 +22,7 @@ const PokeCard = ( {url} ) => {
     return (
         <Link to={ `/PokeDex/${pokemon.id}`}>
             <h3>{pokemon.name} </h3>            
-            <img src={pokemon.sprites?.front_default} alt="" />
-            
+            <img className='card' src={pokemon.sprites?.other.dream_world.front_default} alt="" />            
         </Link>
     );
 };

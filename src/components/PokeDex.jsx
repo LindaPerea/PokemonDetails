@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import PokeCard from './PokeCard';
+import '../assets/css/pokedex.css'
 
 const PokeDex = () => {
 
@@ -40,9 +41,9 @@ const PokeDex = () => {
     };
 
     return (
-        <div>
-            <h1>pokedex</h1>
-            <p>Bienvenido {name}</p>
+        <div className='container-pokedex'>
+            <h1>Pokemones Here!</h1>
+            <p className='paragraph'>Bienvenido {name}</p>
             <div>
                 <input type="text"
                     placeholder='buscar por nombre'
@@ -51,24 +52,31 @@ const PokeDex = () => {
                 />
                 <button onClick={searchName}>Search</button>
 
+                <div className=''>
+                    <select onChange={filterType} name="" id="">
+                        {pokeType.map((type) => (
+                            <option value={type.url} key={type.name}>
+                                {type.name}
+                            </option>
+                        ))}
+                    </select>
 
-                <select onChange={filterType} name="" id="">
-                    {pokeType.map((type) => (
-                        <option value={type.url} key={type.name}>
-                            {type.name}
-                        </option>
-                    ))}
-                </select>
+                </div>
             </div>
+            <ul className='align-pokemons'>
             {
+
                 pokeList.map(poke => (
-                    <PokeCard 
-                        url={poke.url ? poke.url : poke.pokemon.url}  
-                        key={poke.url ? poke.url : poke.pokemon.url} 
-                    />
+                    <li>
+                        <PokeCard
+                            url={poke.url ? poke.url : poke.pokemon.url}
+                            key={poke.url ? poke.url : poke.pokemon.url}
+                        />
+                    </li>
 
                 ))
             }
+            </ul>
 
         </div>
     );
