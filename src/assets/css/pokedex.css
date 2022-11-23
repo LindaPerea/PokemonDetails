@@ -1,10 +1,107 @@
+.container {
+    z-index: 3;
+}
 .paragraph {
     padding: 20px 0 20px 0;
+    text-align: center;
 }
 
-.align-pokemons {
+h1 {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.buttons {
     display: flex;
-    flex-wrap: wrap;   
+    justify-content: center;
+    height: 30px;
+    gap: 15px;   
+      
+}
+
+@media (max-width: 400px){
+    .buttons {   
+        display: block;                    
+        text-align: center;
+                
+    }
     
 }
+
+select {
+    height: 30px;
+    width: 100px;
+    
+
+}
+
+.cards{
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 40px;
+    padding-top: 40px;
+ 
+}
+
+@media (max-width: 900px){
+    .cards {   
+        display: grid;                    
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
+}
+
+@media (max-width: 600px){
+    .cards {   
+        display: grid;                    
+        grid-template-columns: 1fr 1fr;
+        
+    }
+}
+
+@media (max-width: 400px){
+    .cards {   
+        display: grid;                    
+        grid-template-columns: 1fr;
+        
+    }
+}
+
+.cartas {
+    z-index: 3;
+    text-align: center;
+    box-shadow: 3px 3px red, -1em 0 0.4em olive;
+    background: palegoldenrod;
+    
+}
+
+
+
+.circle-dex {
+	
+	
+	-webkit-animation: 2s rotate linear infinite;
+    animation: 2.5s rotate linear infinite;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 80% 200%;
+	
+}
+
+.circle-dex {
+    
+	/* position:relative; */
+	/* right:-0px; */
+	/* top: -250px; */
+
+}
+
+
+@keyframes rotate {from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}}
+@-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}}
+
+
+
 

@@ -17,9 +17,11 @@ const PoKeDetail = () => {
     console.log(pokemon);
     return (
         <div className='poke-detail' >
-            <h1>{pokemon.name}</h1>
-            
+            <h1>{pokemon.name}</h1>            
             <img src={pokemon.sprites?.other.home.front_default} alt="" />
+            <li>
+               Type: {pokemon.types?.[0].type.name}
+            </li>
         </div>
     );
 };

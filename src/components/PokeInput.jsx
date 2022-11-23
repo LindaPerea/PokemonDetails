@@ -21,32 +21,24 @@ const PokeInput = () => {
     }
 
     return (
-        <div className='container '>
-            <div className='' >
-                <div className='input'>
-                    <h1 className=''>Hello Trainer!</h1>
-                    <img src={circle} alt="" />
-                </div>
-
-                <div className='input'>
-
-
-                    <div className=' myDiv animate-bg'>
-                        <input className='box-input'
-                            type="text"
-                            placeholder='Type Your Name'
-                            value={pokeName}
-                            onChange={e => setPokeName(e.target.value)}
-                        />
-                    </div>
-
-                    <div className='button-input'>
-                        <button className='btn1' onClick={dispatchPokeName}>Send</button>
-                    </div>
-
-                </div>
-                <img  className='backgroundImage' src={imagen1} alt="" />
+        <div className='container animate-bg '>
+            <img className='imagen1' src={imagen1} alt="" />
+            
+            
+            <div className='h1'>
+                <h1 className=''>Hello Trainer!</h1>
+            </div>            
+                <input className='box-input '
+                    type="text"
+                    placeholder='Type Your Name'
+                    value={pokeName}
+                    onChange={e => setPokeName(e.target.value)}
+                />            
+            <div className='button-input'>
+                <button className='btn1' onClick={dispatchPokeName}>Send</button>
             </div>
+            <img className='circle' src={circle} alt="" />
+
         </div>
     );
 };

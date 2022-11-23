@@ -2,7 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
+import circle from '../assets/img/circle.png'
 import PokeCard from './PokeCard';
+
 import '../assets/css/pokedex.css'
 
 const PokeDex = () => {
@@ -17,6 +19,19 @@ const PokeDex = () => {
 
     const navigate = useNavigate();
 
+    const [ suggestions, setSuggestions ] = useState([]);
+
+    useEffect(() => {
+        if (pokeNameInput){
+            axios  
+                .get("https://pokeapi.co/api/v2/pokemon/")
+                .then(res => setSuggestions(res.data.results))
+        }
+
+    },[pokeNameInput])
+
+    console.log(suggestions);
+
     useEffect(() => {
         axios
             .get("https://pokeapi.co/api/v2/pokemon/")
@@ -25,11 +40,9 @@ const PokeDex = () => {
         axios.get("https://pokeapi.co/api/v2/type/")
             .then(res => setPokeType(res.data.results));
 
-
     }, []);
-    console.log(pokeType);
-    console.log(pokeList);
-
+    // console.log(pokeType);
+    // console.log(pokeList);
 
     const searchName = () => {
         navigate(`/pokedex/${pokeNameInput.toLowerCase()}`)
@@ -40,20 +53,57 @@ const PokeDex = () => {
         axios.get(url).then((res) => setPokeList(res.data.pokemon));
     };
 
+    const [page, setPage] = useState(1);
+    const pokemonsPerPage = 8
+    const lastIndex = page * pokemonsPerPage;
+    const firstIndex = lastIndex - pokemonsPerPage;
+    const pokemonPaginated = pokeList.slice(firstIndex, lastIndex);
+    const totalpages = Math.ceil(pokeList.length/pokemonsPerPage);
+
+    const numbers = [];
+    for (let i = 1; i <= totalpages; i++) {
+        numbers.push(i);        
+    }
+
+    // console.log(numbers);
+
     return (
         <div className='container-pokedex'>
+
             <h1>Pokemones Here!</h1>
             <p className='paragraph'>Bienvenido {name}</p>
-            <div>
-                <input type="text"
-                    placeholder='buscar por nombre'
+            <div className='buttons'>
+                <input className='type' type="text"
+                    placeholder='Seacrh for Name'
                     value={pokeNameInput}
                     onChange={e => setPokeNameInput(e.target.value)}
                 />
-                <button onClick={searchName}>Search</button>
+                <button className='type' onClick={searchName}>Search</button>
+                { 
+                    suggestions.map(suggestion => (
+                        <li>
+                            {suggestion.name}
+                        </li>
+                    ))
+                }
+                <div>
+                <button 
+                    onClick={() => setPage(page-1)}
+                    disabled={page === 1} 
+                    >Prev Page
+                </button>
+                {numbers.map(number => (
+                    <button onClick={() => setPage(number)}>{number}</button>
+                ))}
+                <button 
+                    onClick={() => setPage(page+1)}
+                    disabled={page === totalpages}
+                    >Next Page
+                </button>
+            </div>
 
                 <div className=''>
-                    <select onChange={filterType} name="" id="">
+                    <select className='type' onChange={filterType} name="" id="">
                         {pokeType.map((type) => (
                             <option value={type.url} key={type.name}>
                                 {type.name}
@@ -62,21 +112,33 @@ const PokeDex = () => {
                     </select>
 
                 </div>
+                
             </div>
-            <ul className='align-pokemons'>
-            {
+            <div className=''>
 
-                pokeList.map(poke => (
-                    <li>
-                        <PokeCard
-                            url={poke.url ? poke.url : poke.pokemon.url}
-                            key={poke.url ? poke.url : poke.pokemon.url}
-                        />
-                    </li>
+                <ul className='cards'>
+                    {
 
-                ))
-            }
-            </ul>
+                        pokemonPaginated.map(poke => (
+
+                            <div className='cartas'>
+
+                                <PokeCard
+                                    url={poke.url ? poke.url : poke.pokemon.url}
+                                    key={poke.url ? poke.url : poke.pokemon.url}
+                                />
+                            </div>
+
+
+
+
+                        ))
+
+                    }
+                </ul>
+            </div>
+           
+
 
         </div>
     );
