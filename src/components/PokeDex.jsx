@@ -19,20 +19,13 @@ const PokeDex = () => {
 
     const navigate = useNavigate();
 
-    const [ suggestions, setSuggestions ] = useState([]);
+    const [suggestions, setSuggestions] = useState([]);
+
+    
 
     useEffect(() => {
-        if (pokeNameInput){
-            axios  
-                .get("https://pokeapi.co/api/v2/pokemon/")
-                .then(res => setSuggestions(res.data.results))
-        }
+        
 
-    },[pokeNameInput])
-
-    console.log(suggestions);
-
-    useEffect(() => {
         axios
             .get("https://pokeapi.co/api/v2/pokemon/")
             .then(res => setPokeList(res.data.results))
@@ -40,8 +33,8 @@ const PokeDex = () => {
         axios.get("https://pokeapi.co/api/v2/type/")
             .then(res => setPokeType(res.data.results));
 
-    }, []);
-    // console.log(pokeType);
+    }, [pokeNameInput]);
+    console.log(suggestions);
     // console.log(pokeList);
 
     const searchName = () => {
@@ -58,11 +51,11 @@ const PokeDex = () => {
     const lastIndex = page * pokemonsPerPage;
     const firstIndex = lastIndex - pokemonsPerPage;
     const pokemonPaginated = pokeList.slice(firstIndex, lastIndex);
-    const totalpages = Math.ceil(pokeList.length/pokemonsPerPage);
+    const totalpages = Math.ceil(pokeList.length / pokemonsPerPage);
 
     const numbers = [];
     for (let i = 1; i <= totalpages; i++) {
-        numbers.push(i);        
+        numbers.push(i);
     }
 
     // console.log(numbers);
@@ -73,36 +66,40 @@ const PokeDex = () => {
             <h1>Pokemones Here!</h1>
             <p className='paragraph'>Bienvenido {name}</p>
             <div className='buttons'>
-                <input className='type' type="text"
-                    placeholder='Seacrh for Name'
-                    value={pokeNameInput}
-                    onChange={e => setPokeNameInput(e.target.value)}
-                />
-                <button className='type' onClick={searchName}>Search</button>
-                { 
-                    suggestions.map(suggestion => (
-                        <li>
-                            {suggestion.name}
-                        </li>
-                    ))
-                }
-                <div>
-                <button 
-                    onClick={() => setPage(page-1)}
-                    disabled={page === 1} 
-                    >Prev Page
-                </button>
-                {numbers.map(number => (
-                    <button onClick={() => setPage(number)}>{number}</button>
-                ))}
-                <button 
-                    onClick={() => setPage(page+1)}
-                    disabled={page === totalpages}
-                    >Next Page
-                </button>
-            </div>
+                <div className='align-input-search'>
+                    <input className='type' type="text"
+                        placeholder='Seacrh for Name'
+                        value={pokeNameInput}
+                        onChange={e => setPokeNameInput(e.target.value)}
+                    />
+                    <button className='type' onClick={searchName}>Search</button>
+                </div>
 
-                <div className=''>
+                <div className='align-prev-next'>
+                    {
+                        suggestions.map(suggestion => (
+                            <li>
+                                {suggestion.name}
+                            </li>
+                        ))
+                    }
+                    <button
+                        onClick={() => setPage(page - 1)}
+                        disabled={page === 1}
+                    >Prev Page
+                    </button>
+                    {numbers.map(number => (
+                        <button onClick={() => setPage(number)}>{number}</button>
+                    ))}
+                    <button
+                        onClick={() => setPage(page + 1)}
+                        disabled={page === totalpages}
+                    >Next Page
+                    </button>
+                </div>
+
+                <div className='align-select'>
+                    <div className='select-type-text'> <p>Select Pokemon Type</p> </div>                    
                     <select className='type' onChange={filterType} name="" id="">
                         {pokeType.map((type) => (
                             <option value={type.url} key={type.name}>
@@ -112,7 +109,7 @@ const PokeDex = () => {
                     </select>
 
                 </div>
-                
+
             </div>
             <div className=''>
 
@@ -137,7 +134,7 @@ const PokeDex = () => {
                     }
                 </ul>
             </div>
-           
+
 
 
         </div>
