@@ -1,9 +1,19 @@
+/* /* REGLAS DE ORDEN DE MI CSS
+1. posicionamiento
+2.Modelo de caja o box model
+3. tipografia
+4. efectos visuales
+5. otros */
+
+
 .transitions {
     width: 100%;
     height: 100vh;
+
 }
 
-.transitions .box {
+
+/* .card {
     background: magenta;
     transition-property: background-color;
     transition-duration: 500ms;
@@ -11,41 +21,41 @@
     transition-delay: 0.5s;
     transition: border-color 2s linear 1s;
     transition: all 2s ease-in-out 250ms;
-}
+} */
 
-.transitions .box :hover{
+/* .card:hover{
     background: greenyellow;
     border-color: #fff;
     border-radius: 3rem;
     border-style: dashed;
 
-}
+} */
 
-.card {
+/* .card {
   border: thick solid #000;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 5rem;
-  width: 600px;
-  height: 400px;
-}
+  margin-bottom: 5rem; */
+  /* width: 600px; */
+  /* height: 400px; */
+/* } */
 
-.card img {
-    width: 100%;
+/* .card img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: 0 50%;
-}
+} */
 
-.transform-3d {
+/* .transform-3d {
     perspective: 10rem;
-}
+} */
 
-.transform-3d img {
+/* .transform-3d img {
     transition: transform 2s ease-in-out;
-}
+} */
 
-.transform-3d img :hover {
+/* .transform-3d img :hover {
   transform: translateZ(4rem);
   transform: perspective(1000px) translateZ(4rem);
   transform: perspective(100rem) translateZ(4rem);
@@ -64,11 +74,11 @@
   transform: rotateY(-90deg);
   transform: rotate3d(1, 1, 1, 45deg);
   transform: rotate3d(1, 0.5, 0, -45deg);
-  transform: rotate3d(-1, 2.5, -2, 60deg);
+  transform: rotate3d(-1, 2.5, -2, 60deg); */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/matrix3d() */
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 6, 0, 0, 0, 1, 0, 50, 100, 0, 1.1);
+  /* transform: matrix3d(1, 0, 0, 0, 0, 1, 6, 0, 0, 0, 1, 0, 50, 100, 0, 1.1);
   transform: rotate3d(-1, 2.5, -2, 60deg);
   transform: rotate3d(-1, 2.5, -2, 60deg) translate3d(2rem, 50%, -3rem);
   transform: rotate3d(-1, 2.5, -2, 60deg) translate3d(2rem, 50%, -3rem)
     scale3d(2, 0.5, 3);
-}
+} */

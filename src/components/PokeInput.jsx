@@ -9,7 +9,8 @@ import '../assets/css/input.css';
 const PokeInput = () => {
 
     const [pokeName, setPokeName] = useState("");
-
+    
+	
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -23,8 +24,7 @@ const PokeInput = () => {
     return (
         <div className='container animate-bg '>
             <img className='imagen1' src={imagen1} alt="" />
-            
-            
+                        
             <div className='h1'>
                 <h1 className=''>Hello Trainer!</h1>
             </div>            
@@ -43,4 +43,4 @@ const PokeInput = () => {
     );
 };
 
-export default PokeInput; <h1>pokeInput</h1>
+export default PokeInput; 

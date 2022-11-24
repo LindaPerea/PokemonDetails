@@ -21,10 +21,10 @@ const PokeDex = () => {
 
     const [suggestions, setSuggestions] = useState([]);
 
-    
+
 
     useEffect(() => {
-        
+
 
         axios
             .get("https://pokeapi.co/api/v2/pokemon/")
@@ -40,6 +40,8 @@ const PokeDex = () => {
     const searchName = () => {
         navigate(`/pokedex/${pokeNameInput.toLowerCase()}`)
     }
+
+
 
     const filterType = (e) => {
         const url = e.target.value;
@@ -66,14 +68,14 @@ const PokeDex = () => {
             <h1>Pokemones Here!</h1>
             <p className='paragraph'>Bienvenido {name}</p>
             <div className='buttons'>
-                <div className='align-input-search'>
+                {/* <div className='align-input-search'>
                     <input className='type' type="text"
                         placeholder='Seacrh for Name'
                         value={pokeNameInput}
                         onChange={e => setPokeNameInput(e.target.value)}
                     />
                     <button className='type' onClick={searchName}>Search</button>
-                </div>
+                </div> */}
 
                 <div className='align-prev-next'>
                     {
@@ -99,7 +101,31 @@ const PokeDex = () => {
                 </div>
 
                 <div className='align-select'>
-                    <div className='select-type-text'> <p>Select Pokemon Type</p> </div>                    
+
+                    <div>
+                        <label htmlFor="">
+                            <input list='pokemons' name='pokemons'
+                                placeholder='search name'
+                                value={pokeNameInput}
+                                onChange={e => setPokeNameInput(e.target.value)}
+                            />
+                            <datalist id='pokemons'>
+                                {
+                                    pokeList.map (pokemon => (
+                                        <option value={pokemon.name} key={pokemon.name} >
+
+
+                                        </option>
+                                    ))
+                                }
+
+                            </datalist>
+                            <button className='type' onClick={searchName}>Search</button>
+
+
+                        </label>
+                    </div>
+                    <div className='select-type-text'> <p>Select Pokemon Type</p> </div>
                     <select className='type' onChange={filterType} name="" id="">
                         {pokeType.map((type) => (
                             <option value={type.url} key={type.name}>
