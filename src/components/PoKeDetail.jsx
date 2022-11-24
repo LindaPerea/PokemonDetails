@@ -14,17 +14,19 @@ const PoKeDetail = () => {
             .then(res => setPokemon(res.data));
     }, []);
 
-    console.log(pokemon);
+    // console.log(pokemon);
     return (
-        <div className='transitions'>
+        <div className='container-detail'>
+
+            <h1>{pokemon.name}</h1>
+            <div className='aling-li'>
+                <li>Type: {pokemon.types?.[0].type.name}</li>
+                <li>Weight: {pokemon.weight}</li>
+            </div>
             <div className='box' >
-                <h1>{pokemon.name}</h1>
-                <li>
-                    Type: {pokemon.types?.[0].type.name}
-                </li>
-                <article className='card'>
+                <div className='card transform-3d'>
                     <img src={pokemon.sprites?.other.home.front_default} alt="" />
-                </article>
+                </div>
 
             </div>
 

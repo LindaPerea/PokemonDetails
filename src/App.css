@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 *,
@@ -13,3 +14,38 @@ html {
   
 }
 
+
+
+.animate-bg:before, .animate-bg:after {	
+	content: '';
+	z-index: -6;
+	position: absolute; 
+	left: 0px;
+	top: 0px;
+	background: linear-gradient(120deg, #cbf7a2, #ea99f5, #8596fa,#f16e95,  
+	#cc6394, #fa8dcd,#f3a774, #7ce0f1,#f7f773, #51aeca);
+	background-size: 300%;
+	width: calc(100vw + 16px);
+	height: calc(100% + 16px);
+	z-index: -5;
+	animation: BGgradient 15s ease infinite; 
+	
+}
+
+@keyframes BGgradient {
+	0% {
+		background-position: 0% 200%;
+	}
+	50% {
+		background-position: 200% 0%;
+	}
+	100% {
+		background-position: 0% 330%;
+	}
+}
+
+.animate-bg:after {
+	filter: brightness(1.4);
+	filter: drop-shadow(16px 16px 20px rgb(248, 220, 97));
+	filter: blur(15px);
+}

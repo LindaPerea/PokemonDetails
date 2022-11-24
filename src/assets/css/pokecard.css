@@ -1,8 +1,19 @@
+.pokecard {
+    
+    
+}
+
 .pokecard img {
-    z-index: 3;
+    
     padding-top: 30px;    
-    width: 70%;   
-    margin: 0 auto;
+    object-fit: cover ;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    padding-bottom: 30px;
+
+    
 
 }
 

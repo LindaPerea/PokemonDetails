@@ -11,7 +11,7 @@ function App() {
 
   return (
     <HashRouter>
-      <div className='App'>
+      <div className='App animate-bg'>
       <Routes>
 
         <Route path='/' element={<PokeInput/>} />

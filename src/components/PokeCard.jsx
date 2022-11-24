@@ -19,13 +19,14 @@ const PokeCard = ({ url }) => {
 
     }, []);
 
-    // console.log(pokemon);
+    console.log(pokemon);
     // onClick={()=> navigate(`/PokeDex/${pokemon.id}`)}
     return (
         <div className='pokecard'>
             
             <Link className='links' to={`/PokeDex/${pokemon.id}`}>
                 <h3  >{pokemon.name} </h3>
+                <li>Type: {pokemon.types?.[0].type.name}</li>
                 <img src={pokemon.sprites?.other.dream_world.front_default} alt="" />
                 
             </Link>

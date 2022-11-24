@@ -4,13 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import { changeName } from '../store/slices/pokeName.slice';
 import imagen1 from '../assets/img/imagen1.png';
 import circle from '../assets/img/circle.png'
+import pokeyoung from '../assets/img/pokeyoung.png'
+import pokedex from '../assets/img/pokedex.svg'
 import '../assets/css/input.css';
 
 const PokeInput = () => {
 
     const [pokeName, setPokeName] = useState("");
-    
-	
+
+
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
@@ -22,22 +24,37 @@ const PokeInput = () => {
     }
 
     return (
-        <div className='container animate-bg '>
-            <img className='imagen1' src={imagen1} alt="" />
-                        
-            <div className='h1'>
-                <h1 className=''>Hello Trainer!</h1>
-            </div>            
-                <input className='box-input '
-                    type="text"
-                    placeholder='Type Your Name'
-                    value={pokeName}
-                    onChange={e => setPokeName(e.target.value)}
-                />            
-            <div className='button-input'>
-                <button className='btn1' onClick={dispatchPokeName}>Send</button>
+        <div className='animate-bg'>
+            <div className='container  '>
+                <div className='pokeyoung-imagen 2'>
+                    <img src={pokeyoung} alt="" />
+
+                </div>
+                <div className='container-hello hello-responsive 1'>
+                    <div className='h1'>
+                        <img src={pokedex} alt="" />
+                        <h1 className=''>Hello Trainer!</h1>
+                    </div>
+                    
+                    <input className='box-input'
+                        type="text"
+                        placeholder='Type Your Name'
+                        value={pokeName}
+                        onChange={e => setPokeName(e.target.value)}
+                    />
+                    <div className='align-btn1-input'>
+                        <button className='btn1' onClick={dispatchPokeName}>Send</button>
+                        <div className='button-input '>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                {/* <div className='circle 3'>
+                    <img className='circle' src={circle} alt="" />
+                </div> */}
             </div>
-            <img className='circle' src={circle} alt="" />
 
         </div>
     );
