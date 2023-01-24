@@ -26,15 +26,17 @@ const PokeInput = () => {
     return (
         <div className='animate-bg'>
             <div className='container  '>
-                <div className='pokeyoung-imagen 2'>
-                    <img src={pokeyoung} alt="" />
-
+                <div className='pokeyoung-imagen'>
+                        <img src={pokeyoung} alt="" width={300} />
                 </div>
+                <div className='h1'>
+                        <img src={pokedex} alt=""  />                        
+                </div>
+            
+                
                 <div className='container-hello hello-responsive 1'>
-                    <div className='h1'>
-                        <img src={pokedex} alt="" />
-                        <h1 className=''>Hello Trainer!</h1>
-                    </div>
+                    
+                    <h1 className=''>Hello Trainer!</h1>
                     
                     <input className='box-input'
                         type="text"

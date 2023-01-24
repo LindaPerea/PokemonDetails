@@ -90,12 +90,22 @@ select.type {
 }
 
 .cartas {
-    z-index: 3;
+    /* z-index: 3; */
     text-align: center;
     box-shadow: 3px 3px red, -1em 0 0.4em olive;
     background: palegoldenrod;
+    list-style: none;
     
 }
+@media (max-width: 480px){
+    .cartas {
+        width: 80%;
+        justify-content: center;
+        
+    }
+
+}
+
 
 .circle-dex {
 	

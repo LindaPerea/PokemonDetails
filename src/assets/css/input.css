@@ -1,46 +1,21 @@
-.container {
-	display: flex;
-    justify-content: space-between;
-    align-items: center;
-	max-width: 960px;
-	
-}
 
 .pokeyoung-imagen {
-	/* align-content: left;
+	text-align: center;
 	width: 100%;
-	height: 100vh; */
-
-
-	/* position:relative;
-	left: -250px;
-	top: -400px; */
 }
 
-.h1 h1 {	
-	text-align: left;
-	color:  rgb(21, 0, 90);
-	
+.h1 img {	
+	width: 100%;	
 }
-
-
-
 
 .box-input {
 	height: 55px;
 	border: #51aeca 3px solid;
-
+	text-align: center;
 }
 
 .align-btn1-input {
 	display: flex;
-}
-
-.input {
-	/* display: flex;
-	align-items: center; */
-
-	
 }
 
 .circle {	

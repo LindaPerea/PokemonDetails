@@ -67,15 +67,7 @@ const PokeDex = () => {
 
             <h1>Pokemones Here!</h1>
             <p className='paragraph'>Bienvenido {name}</p>
-            <div className='buttons'>
-                {/* <div className='align-input-search'>
-                    <input className='type' type="text"
-                        placeholder='Seacrh for Name'
-                        value={pokeNameInput}
-                        onChange={e => setPokeNameInput(e.target.value)}
-                    />
-                    <button className='type' onClick={searchName}>Search</button>
-                </div> */}
+            <div className='buttons'>              
 
                 <div className='align-prev-next'>
                     {
@@ -141,28 +133,17 @@ const PokeDex = () => {
 
                 <ul className='cards'>
                     {
-
                         pokemonPaginated.map(poke => (
-
                             <div className='cartas'>
-
                                 <PokeCard
                                     url={poke.url ? poke.url : poke.pokemon.url}
                                     key={poke.url ? poke.url : poke.pokemon.url}
                                 />
                             </div>
-
-
-
-
                         ))
-
                     }
                 </ul>
             </div>
-
-
-
         </div>
     );
 };
