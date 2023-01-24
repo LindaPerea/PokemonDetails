@@ -5,13 +5,24 @@
 4. efectos visuales
 5. otros */
 
+
 .container-detail {
-  /* background: pink; */
-  margin: auto;
-  display: block;
-  
+	overflow: hidden; 
+	position: relative;
+	height: 100vh;
+	overflow-y: auto;
 }
 
+.container-detail::-webkit-scrollbar {
+    background-color: chartreuse;
+    scrollbar-width: 20px;
+    border-radius: 9px;
+}
+
+.container-detail::-webkit-scrollbar-thumb {
+    background-color: fuchsia;
+    border-radius: 9px;
+}
 .box {
   border: thick solid #000;
   margin: auto;
@@ -20,6 +31,7 @@
   height: 60%;
   margin-top: 30px;
 }
+
 
 .box li {
   margin-top: 30px;
@@ -32,6 +44,11 @@
 
 } */
 
+@media (max-width: 480px) {
+  .box {
+    height: 200px;
+  }
+}
 
 .box {
     background: rgb(243, 198, 243);
@@ -54,19 +71,16 @@
 .card {
   margin: auto;
   display: block;
-  /* margin-left: auto; */
-  /* margin-right: auto; */
-  /* margin-bottom: 5rem; */
-  width: 100%;
-  height: 100vh;
+  width: 80%;
+  height: 100%;
 }
 
 .card img {
   margin: auto;
   display: block;
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  /* height: 80%; */
 
 }
 

@@ -4,6 +4,10 @@
 	width: 100%;
 }
 
+h1 {
+    padding-top: 30px;
+}
+
 .h1 img {	
 	width: 100%;	
 }
@@ -11,32 +15,13 @@
 .box-input {
 	height: 55px;
 	border: #51aeca 3px solid;
-	text-align: center;
+	/* text-align: center; */
 }
 
 .align-btn1-input {
 	display: flex;
 }
 
-.circle {	
-	
-	-webkit-animation: 2s linear infinite;
-    animation: 2s rotate linear infinite;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-	
-	
-}
-
-.circle img{
-	/* position:relative;
-	right: 0px;
-	top: 80px; */
-	
-	/* align-content: right  */
-
-	/* animation: acelerate 5s infinite forwards; */
-}
 
 
 @keyframes rotate {from {transform: rotate(0deg);}
