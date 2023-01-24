@@ -105,8 +105,6 @@ const PokeDex = () => {
                                 {
                                     pokeList.map (pokemon => (
                                         <option value={pokemon.name} key={pokemon.name} >
-
-
                                         </option>
                                     ))
                                 }

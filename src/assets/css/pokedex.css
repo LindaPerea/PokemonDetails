@@ -1,8 +1,4 @@
-.container {
-    /* z-index: 3; */
-    
-    
-}
+
 .paragraph {
     padding: 20px 0 20px 0;
     text-align: center;
@@ -100,13 +96,29 @@ select.type {
 @media (max-width: 480px){
     .cartas {
         width: 80%;
-        justify-content: center;
+        
         
     }
 
 }
 
+.container-pokedex {
+	overflow: hidden; 
+	position: relative;
+	height: 100vh;
+	overflow-y: auto;
+}
 
+.container-pokedex::-webkit-scrollbar {
+    background-color: chartreuse;
+    scrollbar-width: 20px;
+    border-radius: 9px;
+}
+
+.container-pokedex::-webkit-scrollbar-thumb {
+    background-color: fuchsia;
+    border-radius: 9px;
+}
 .circle-dex {
 	
 	

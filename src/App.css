@@ -14,7 +14,12 @@ html {
   
 }
 
-
+.animate-bg {
+	overflow: hidden; 
+	position: relative;
+	height: 100vh;
+	overflow-y: auto;
+}
 
 .animate-bg:before, .animate-bg:after {	
 	content: '';
@@ -25,8 +30,8 @@ html {
 	background: linear-gradient(120deg, #cbf7a2, #ea99f5, #8596fa,#f16e95,  
 	#cc6394, #fa8dcd,#f3a774, #7ce0f1,#f7f773, #51aeca);
 	background-size: 300%;
-	width: calc(100vw + 16px);
-	height: calc(100% + 16px);
+	width: calc(100vw);
+	height: calc(100vh );
 	z-index: -5;
 	animation: BGgradient 15s ease infinite; 
 	
